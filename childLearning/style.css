@@ -1,0 +1,42 @@
+@font-face {
+    
+    src: url("../font/Typo_CrayonM.ttf");
+    font-family: "Crayon";
+}
+
+
+html {
+    background-color: blanchedalmond;
+
+
+}
+    body{
+
+         text-align: center;
+        font-family: "Crayon";
+    
+    }
+
+
+        .title{
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            font-size: 7vw;
+
+
+        }
+
+        .FAQ_btn{
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0,);
+            border: 3px solid black;
+            color: black;
+        }
+
+
+
+
+        
