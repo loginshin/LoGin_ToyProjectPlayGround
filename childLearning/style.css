@@ -1,0 +1,80 @@
+@font-face {
+    
+    src: url("../font/Typo_CrayonM.ttf");
+    font-family: "Crayon";
+}
+
+
+html {
+    background-color: #eff3b3;
+
+
+}
+    body{
+
+         text-align: center;
+        font-family: "Crayon";
+    
+    }
+
+
+        .title{
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            font-size: 7vw;
+            flex-direction: column;
+
+
+        }
+
+        .btn{
+            margin-bottom:30px ;
+            font-size: 2vw;
+        
+            
+        }
+            
+            #cam_btn {
+                border: none;
+                max-width: 44vw;
+                min-width: 40vw;
+                height: 50px;
+                background-color: goldenrod;
+                color: white;
+                font-size: 30px;
+                border-radius: 20px;
+
+            }
+
+            button:hover{
+                background: rgba(0,79,255,0.9);
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+            }
+
+            #webcam-container > canvas {
+                border-radius: 100px;
+            }
+
+
+        #label-container{
+            font-size: 2vw;
+        }
+
+        .FAQ_btn{
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0,);
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+        }
+
+
+
+
+        
