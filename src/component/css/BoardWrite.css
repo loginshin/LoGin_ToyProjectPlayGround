@@ -1,0 +1,26 @@
+.board {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.board-write-btn {
+    border: 0;
+    padding: 10px;
+    background-color: #ffd9d9;
+}
+
+.board-input-row {
+    margin: 10px 0;
+    display: flex;
+}
+
+.board-input-row>label:first-child {
+    margin: 10px 0;
+    width: 30%;
+    font-weight: bold;
+}
+
+.board-input-row>*:nth-child(2) {
+    margin: 10px 0;
+    width: 70%;
+}
