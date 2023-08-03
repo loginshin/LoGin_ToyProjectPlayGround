@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>What is this, Teacher</title>
+  </head>
+  <body onload="init()">
+    
+      <div class="app_container">
+        <h3>What is this, Teacher</h3>
+          <div class="webcam">
+            <video width="600" autoplay playsinline id="video"></video>
+          </div>
+          <progress value="0" max="3" id="progressBar"></progress>
+          <div class="content">
+            <div class="button_container">
+              <button class="url_Button" id="search">search</button>
+              <button class="url_Button" id="translate">translate</button>
+            </div>
+            <div class="Result">
+            </div>
+            <div class="description">
+              <!-- <div id="console"></div> -->
+              <div id="predictions"></div>
+            </div>         
+          </div>
+      </div>
+
+     
+    <script src="/index.js"></script>
+  </body>
+</html>

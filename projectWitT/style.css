@@ -1,0 +1,95 @@
+@font-face {
+    
+  src: url("../font/Typo_CrayonM.ttf");
+  font-family: "Crayon";
+}
+
+
+html{
+  background-color: #f6f2c3;
+}
+
+body{
+    
+    text-align:center;
+    font-family: "Crayon";
+  }
+
+    .app_container > h3{
+      display: flex;
+      justify-content: center;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+      font-size: 5vw;
+      flex-direction: column;
+    }
+/* 
+    .ui_Button{
+      border: none;
+      max-width: 15%;
+      min-width: 10%;
+      height: 50px;
+      background-color: goldenrod;
+      color: white;
+      font-size: 30px;
+      border-radius: 20px;
+    }
+
+    button:hover{
+      background: rgba(0,79,255,0.9);
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+  } */
+
+  .webcam > video {
+    border-radius: 250px;
+    width: 40%;
+}
+
+
+.button_container{
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+
+
+button {
+  background: none;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  display: block;
+  font-size: 1.0em;
+  font-weight: bold;
+  
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+
+
+
+.img{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+.img > img{
+  width: 10%;
+}
+
+
+
+
+
+@media(max-width:1000px){
+  .webcam > video {
+    width: 80%;
+}
+}
