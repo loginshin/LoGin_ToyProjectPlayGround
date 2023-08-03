@@ -1,0 +1,8 @@
+# 서버
+터미널에
+node server.js
+
+# 프론트
+터미널에
+npm install
+npm start
