@@ -1,0 +1,23 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-spacing: 0;
+}
+
+thead {
+    border-bottom: 3px solid black;
+    padding: 0;
+    font-size: 20px;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+
+tr {
+    /* background-color: #eceaea; */
+    cursor: pointer;
+}
+
+td {
+    padding: 10px 5px;
+}
