@@ -1,15 +1,7 @@
 {
   "expo": {
-    "plugins": [
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
-        }
-      ]
-    ],
-    "name": "whatisthisT",
-    "slug": "whatisthisT",
+    "name": "test1",
+    "slug": "test1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
