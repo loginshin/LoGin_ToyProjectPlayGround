@@ -4,6 +4,7 @@ import { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import * as tensorflow from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
+import { decodeJpeg } from '@tensorflow/tfjs-react-native'
 import * as FileSystem from 'expo-file-system';
 
 import {Button} from './components/Button';
@@ -30,7 +31,6 @@ export default function App() {
         const { uri } = result.assets[0];
         setSelectedImageUri(uri);
         await imageClassification(uri);
-
       }
 
     } catch (error){
@@ -47,7 +47,17 @@ export default function App() {
     await tensorflow.ready();
     const model = await mobilenet.load();
 
-    const imageBase64 = await FileSystem.readAsStringAsync(imageUri)
+    const imageBase64 = await FileSystem.readAsStringAsync(imageUri,{
+      encoding: FileSystem.EncodingType.Base64
+    });
+
+    const imgBuffer = tensorflow.util.encodeString(imageBase64, 'base64').buffer;
+    const raw = new Uint8Array(imgBuffer);
+    const imageTensor = decodeJpeg(raw);
+
+    const classificationResult = await model.classify(imageTensor);
+    console.log(classificationResult);
+
   }
 
   return (
