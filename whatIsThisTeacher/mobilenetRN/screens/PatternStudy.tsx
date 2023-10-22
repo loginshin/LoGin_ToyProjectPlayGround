@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import {styles} from '../styles'; 
 import config from '../config';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default function PatternStudy({ route }){
@@ -13,6 +14,7 @@ export default function PatternStudy({ route }){
     const [resultText,setResultText] = useState("");
     const [isLoading,setIsLoading] = useState(false); //Loading ani
     const [images, setImages] = useState([]);
+    const ACCESS_KEY = config.UNSPLASH_CLIENT_SECRET;
 
     useEffect(() => {
         setResultText(route.params.data);
@@ -30,32 +32,28 @@ export default function PatternStudy({ route }){
         const fetchPhotos = async () => {
             try {
             const response = await axios.get(
-                'https://api.unsplash.com/photos/random',
+                'https://api.unsplash.com/search/photos',
                 {
                 params: {
-                    count: 1, 
                     query: resultText,
-                    client_id: config.UNSPLASH_CLIENT_SECRET,
+                    per_page:5
                 },
+                headers: {
+                    Authorization :`Client-ID ${ACCESS_KEY}`
+                }
                 }
             );
-            setImages(response.data);
+            setImages(response.data.results);
             setIsLoading(false);
             } catch (error) {
             console.error(error);
-            if (error.response) { // 서버로부터의 응답이 있는 경우
-            console.error('Response data:', error.response.data); // 서버로부터 받은 데이터
-            console.error('Response status:', error.response.status); // HTTP 상태 코드
-            console.error('Response headers:', error.response.headers); // HTTP 헤더
-            } else if (error.request) { // 요청이 만들어졌으나, 응답을 받지 못한 경우 
-            console.error('Request:', error.request);
-            }
             }
         };
 
 
     return(
             <View style={styles.container}>
+                <ScrollView>
             {isLoading ? (
             <ActivityIndicator size="large" color="#0000ff" />
             ) : (
@@ -67,6 +65,7 @@ export default function PatternStudy({ route }){
                 />
             ))
             )}
+            </ScrollView>
         </View>
     )
 }

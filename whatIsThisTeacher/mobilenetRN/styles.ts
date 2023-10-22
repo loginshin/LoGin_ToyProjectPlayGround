@@ -10,12 +10,13 @@ export const styles = StyleSheet.create({
       padding:32
     },
 
-    // ============================== Home
+    // ============================== all
 
     image: {
         width: 300,
         height: 300,
         borderRadius:20,
+        marginBottom:26
 
     },
     results: {
@@ -26,7 +27,7 @@ export const styles = StyleSheet.create({
     },
     resultsText:{
       color:"#fff",
-      fontSize:24,
+      fontSize:30,
     },
 
     navigationButtonContainer:{
@@ -39,6 +40,16 @@ export const styles = StyleSheet.create({
     },
     // ==================================Language Page
 
+    exObjectView:{
+      padding:20,
+      flex:1,
+    },
+
+    exObjectText:{
+      color:"#fff",
+      fontSize:24,
+      flex:1,
+    }
 
 
 

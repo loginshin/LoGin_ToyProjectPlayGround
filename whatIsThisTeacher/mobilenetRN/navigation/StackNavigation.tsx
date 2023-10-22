@@ -23,6 +23,13 @@ const StackNavigation =() => {
                 ...TransitionPresets.SlideFromRightIOS,
                 gestureEnabled: true,
                 gestureDirection: 'horizontal-inverted',
+                headerStyle:{
+                    backgroundColor:'#171717'
+                },
+                headerTintColor:'#fff',
+                headerTitleStyle: {
+                    fontWeight:'bold',
+                }
              }}
             component={LanguageStudy}
             />
@@ -32,6 +39,13 @@ const StackNavigation =() => {
                 ...TransitionPresets.SlideFromRightIOS,
                 gestureEnabled: true,
                 gestureDirection: 'horizontal',
+                headerStyle:{
+                    backgroundColor:'#171717'
+                },
+                headerTintColor:'#fff',
+                headerTitleStyle: {
+                    fontWeight:'bold',
+                }
              }}
             component={PatternStudy}
             />
