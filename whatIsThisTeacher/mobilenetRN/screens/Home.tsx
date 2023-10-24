@@ -58,14 +58,19 @@ export default function Home() {
     await tensorflow.ready();
     const model = await mobilenet.load();
 
+    //이미지를 Base64로 인코딩하여 읽어옴
     const imageBase64 = await FileSystem.readAsStringAsync(imageUri,{
       encoding: FileSystem.EncodingType.Base64
     });
 
+    //Base64로 인코딩된 이미지를 Unint8Array형식으로 변환
     const imgBuffer = tensorflow.util.encodeString(imageBase64, 'base64').buffer;
+
+    //Uint8Array 형식의 이미지 데이터를 Tensorflow의 decodeJpeg 함수로 디코딩 하여 텐서로 변환
     const raw = new Uint8Array(imgBuffer);
     const imageTensor = decodeJpeg(raw);
 
+    //모델을 사용하여 이미지 분류 수행
     const classificationResult = await model.classify(imageTensor);
     // console.log(classificationResult);
 

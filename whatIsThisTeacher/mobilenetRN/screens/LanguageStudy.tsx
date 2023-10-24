@@ -16,11 +16,6 @@ export default function LanguageStudy({ route }){
     const [translatedText, setTranslatedText] = useState('');
     const [gptResponse, setGptResponse] = useState(''); //gpt 답변 저장 state
 
-    
-
-
-
-    
 
     useEffect(() => {
         setIsLoading(true);
