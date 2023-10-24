@@ -3,23 +3,23 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View,Image, ActivityIndicator , ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+
 import axios from 'axios';
 
 import config from '../config';
 import {styles} from '../styles'; 
+import GptApi from '../components/GptApi';
 
 export default function LanguageStudy({ route }){
     const navigation = useNavigation();
     const [isLoading,setIsLoading] = useState(false); //Loading ani
     const [translatedText, setTranslatedText] = useState('');
+    const [gptResponse, setGptResponse] = useState(''); //gpt 답변 저장 state
 
-    const exObject = [
-        { "english" : "Could I get a beer glass, please?", "korean" : "맥주잔 좀 받을 수 있을까요?" },
-        { "english" : "This beer glass is dirty. Could I have another one?", "korean" : "이 맥주잔이 더러워요. 다른 걸로 바꿀 수 있을까요?" },
-        { "english" : "I accidentally broke the beer glass.", "korean" : "제가 실수로 맥주잔을 깨버렸어요." },
-        { "english" : "Can you refill my beer glass?",  "korean": '제 맥주잔 다시 채워 주실래요?' },
-        { 'english': 'How much is this beer glass?' , "korean": '이 맥주잔 얼마예요?' }
-    ]
+    
+
+
+
     
 
     useEffect(() => {
@@ -32,10 +32,11 @@ export default function LanguageStudy({ route }){
         }
 
         setIsLoading(false);
-        console.log("routeparamsdata is : ",route.params.data);
-
+        // console.log("routeparamsdata is : ",route.params.data);
     }, [route])
 
+
+    //papago papago papago papago
     const translateText = async (originalText:string) => {
         try {
             console.log("text in trans late Text func  : " , originalText);
@@ -58,8 +59,8 @@ export default function LanguageStudy({ route }){
             );
             setIsLoading(false);
             setTranslatedText(response.data.message.result.translatedText);
-            console.log(response.data.message.result.translatedText);
-            console.log(translatedText);
+            // console.log("response.data.message.result.translatedText :",response.data.message.result.translatedText);
+            // console.log("번역 결과는 : "+translatedText);
         } catch (error) {
         console.error(error);
         if (error.response) { // 서버로부터의 응답이 있는 경우
@@ -78,23 +79,18 @@ export default function LanguageStudy({ route }){
                 <Text style={styles.resultsText}>
                     {translatedText}
                 </Text>
+                
             }
-            {
-                exObject &&
-                <View >
-                    <ScrollView>
-                        {
-                            exObject &&
-                                exObject.map((ex,index) => (
-                                    <View key={index} style={styles.exObjectView}>
-                                        <Text style={styles.exObjectText}>{ex.english}</Text>
-                                        <Text style={styles.exObjectText}>{ex.korean}</Text>
-                                    </View>
-                                ))
-                        }
-                            </ScrollView>
-                </View>
-            }
+        <GptApi text={route.params.data}/>
+        {/* <ScrollView> */}
+                {/* ========================== */}
+                {/* <View>
+                    { gptResponse &&
+                        <Text style={styles.exObjectText}>{gptResponse}</Text>
+                    }
+                </View> */}
+            {/* </ScrollView> */}
+
         </View>
     )
 }
