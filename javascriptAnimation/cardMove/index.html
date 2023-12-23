@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="overlay"></div>
+    <div class="card"></div>
+</div>
+
+<script>
+    //마우스 올리면 뒤집는 회전
+    var overlay = document.querySelector('.overlay');
+    var container = document.querySelector('.container');
+    container.addEventListener('mousemove', function (e) {
+        var x = e.offsetX;
+        var y = e.offsetY;
+        console.log(x, y);
+        var rotateY = -1 / 5 * x + 20;
+        var rotateX = 4 / 30 * y - 20;
+
+        overlay.style = `background-position : ${x / 5 + y / 5}%`
+
+        container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)` // 뒤집히는것같은 회전
+    })
+
+    container.addEventListener('mouseout', function () {
+        overlay.style = `filter : opacity(0)`
+        container.style = `transform : perspective(350px) rotateY(0deg) rotateX(0deg)`
+    })
+</script>
+
+<!-- background:radial-gradient()를 사용하면 살짝 빛나게 할 수 있다. -->
+<style>
+    .container {
+        width: 220px;
+        height: 310px;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 220px;
+        height: 310px;
+        background: linear-gradient(105deg,
+                transparent 40%,
+                rgba(255, 219, 112, 0.8) 45%,
+                rgba(132, 50, 255, 0.6) 50%,
+                transparent 54%);
+        filter: brightness(1.2) opacity(0.8);
+        mix-blend-mode: : color-dodge;
+        background-size: 150% 150%;
+        background-position: 100%;
+        /* 자연스럽게 변하도록 속도조정*/
+        transition: all 0.1s;
+
+    }
+
+    .card {
+        width: 220px;
+        height: 310px;
+        background-image: url(./loginImg.jpg);
+        background-size: cover;
+    }
+</style>
