@@ -22,7 +22,6 @@ export default function PatternStudy({ route }){
         console.log("routeparamsdata is : ",route.params.data);
     },[route])
 
-    
 
         useEffect(() => {
             fetchPhotos();
