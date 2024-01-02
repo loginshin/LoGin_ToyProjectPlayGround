@@ -11,7 +11,7 @@
 
 -----------------------------------------------
 <div align='center'>
-<h3>BarCoder</h3>
+<h3>GIF 미리보기</h3>
 <img width="60%" height="" src="./gitResource/whatIsThisT.gif"></img> 
 <br><br><br><br> 
 
