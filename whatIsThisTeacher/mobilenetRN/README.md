@@ -15,14 +15,14 @@
 <img width="60%" height="" src="./gitResource/whatIsThisT.gif"></img> 
 <br><br><br><br> 
 
-<h3>barcoder 미리보기</h3>
+<h3>프로젝트 미리보기</h3>
 <!-- <img width="" height="" src="./gitResource/WhatIsThisTeacherApp.mp4"></img> -->
 <img width="" height="" src="./gitResource/whatIsThisTScreen.PNG"></img>  
 
 
 <br><br><br><br> 
 
-<h3>Barcoder 흐름도</h3>
+<h3>프로젝트 흐름도</h3>
 <img width="" height="" src="./gitResource/whatIsThisTUse.PNG"></img>  
 
  
