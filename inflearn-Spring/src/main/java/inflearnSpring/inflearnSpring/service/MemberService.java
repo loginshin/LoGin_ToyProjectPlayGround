@@ -3,10 +3,12 @@ package inflearnSpring.inflearnSpring.service;
 import inflearnSpring.inflearnSpring.domain.Member;
 import inflearnSpring.inflearnSpring.repository.MemberRepository;
 import inflearnSpring.inflearnSpring.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
 //    private  final MemberRepository memberRepository = new MemoryMemberRepository();
