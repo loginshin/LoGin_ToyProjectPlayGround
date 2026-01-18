@@ -1,4 +1,4 @@
-package com.enter.enter
+package com.enterProject.enterProject
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

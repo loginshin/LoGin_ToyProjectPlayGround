@@ -6,7 +6,7 @@ plugins {
 	id 'org.jetbrains.kotlin.plugin.jpa' version '2.2.21'
 }
 
-group = 'com.enter'
+group = 'com.enterProject'
 version = '0.0.1-SNAPSHOT'
 description = 'Enter project for Spring Boot'
 
@@ -21,6 +21,7 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
@@ -30,6 +31,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	runtimeOnly 'org.postgresql:postgresql'
 }
 
 kotlin {
