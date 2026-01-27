@@ -5,21 +5,21 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 
-object ApiResponse {
+object ApiResponses {
 
-    private fun headers() : HttpHeaders =
+    private fun headers(): HttpHeaders =
         HttpHeaders().apply {
+            date = System.currentTimeMillis()
             contentType = MediaType.APPLICATION_JSON
         }
 
-    fun <T> ok(data: T? = null, message: String? = null): ResponseEntity<ApiResponseDTO<T>> =
-        ResponseEntity(ApiResponseDTO(
-            success = true,
-            message = message,
-            data = data
-        ),
-        headers(),
-        HttpStatus.OK
-        )
+    fun ok(): ResponseEntity<ApiResponseDTO<Unit>> =
+        ResponseEntity(ApiResponseDTO.ok(), headers(), HttpStatus.OK)
 
+    fun <T> ok(data: T): ResponseEntity<ApiResponseDTO<T>> =
+        ResponseEntity(ApiResponseDTO.ok(data), headers(), HttpStatus.OK)
+
+    fun fail(status: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR, message: String = "ERROR")
+            : ResponseEntity<ApiResponseDTO<Unit>> =
+        ResponseEntity(ApiResponseDTO.fail(status.value(), message), headers(), status)
 }
