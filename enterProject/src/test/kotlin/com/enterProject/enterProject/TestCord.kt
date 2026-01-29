@@ -12,7 +12,7 @@ class TestCord {
         var tmp : String
         var arr : Array<Int>
 
-        arr = arrayOf(1,2,3,4,5)
+        arr = arrayOf(1, 2, 3, 4, 5, 6)
 
         for (i in arr) {
             print(i * 2)
