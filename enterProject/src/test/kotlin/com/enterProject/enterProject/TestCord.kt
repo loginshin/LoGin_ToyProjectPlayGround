@@ -9,16 +9,39 @@ class TestCord {
     fun testMain() {
         print("\n\n\n ===================================\n\n\n")
 
-        var tmp : String
-        var arr : Array<Int>
+        // map
+        var map = mapOf<String, Int>(Pair("J", 29), "K" to 24)
 
-        arr = arrayOf(1, 2, 3, 4, 5, 6)
+        println(map)
 
-        for (i in arr) {
-            print(i * 2)
-        }
+        println(map.size)
+        println(map.get("K"))
+
+
+
 
 
         print("\n\n\n===================================\n\n\n ")
     }
+
+    /**
+     * 지역 함수
+     */
+    private fun someFun() {
+        val data3: Int
+        data3 = 10
+        println("data3 : $data3")
+
+        val noTemp: Nothing
+
+
+
+    }
+}
+
+/**
+ * 클래스
+ */
+class User {
+    val data5: Int = 10
 }
