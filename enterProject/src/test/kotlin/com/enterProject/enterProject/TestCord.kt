@@ -13,10 +13,20 @@ class TestCord {
         var map = mapOf<String, Int>(Pair("J", 29), "K" to 24)
 
         println(map)
-
         println(map.size)
         println(map.get("K"))
 
+
+
+        print("\n\n\n===================================\n\n\n ")
+
+
+        var data = arrayOf<Int>(10, 20, 30)
+
+        for (i in data.indices) {
+            print(data[i])
+            if (i !== data.size - 1) print(",")
+        }
 
 
 
