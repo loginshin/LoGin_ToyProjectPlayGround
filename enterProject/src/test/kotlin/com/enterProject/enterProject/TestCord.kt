@@ -7,45 +7,40 @@ import kotlin.test.Test
 class TestCord {
     @Test
     fun testMain() {
-        print("\n\n\n ===================================\n\n\n")
+        print("\n\n\n =============[ 함수형 프로그래밍 ]==============\n\n\n")
 
-        // map
-        var map = mapOf<String, Int>(Pair("J", 29), "K" to 24)
-
-        println(map)
-        println(map.size)
-        println(map.get("K"))
-
-
-
-        print("\n\n\n===================================\n\n\n ")
-
-
-        var data = arrayOf<Int>(10, 20, 30)
-
-        for (i in data.indices) {
-            print(data[i])
-            if (i !== data.size - 1) print(",")
-        }
-
-
-
+        println(pureFuntion(10, 20)) // 30
+        println(impureFuntion(10, 20)) // 50
+        println(impureFuntionWithSideEffect(10, 20)) //50
 
         print("\n\n\n===================================\n\n\n ")
     }
 
-    /**
-     * 지역 함수
-     */
-    private fun someFun() {
-        val data3: Int
-        data3 = 10
-        println("data3 : $data3")
+    var z: Int = 10 // 가변
+    val x: Int = 10 // 불변
 
-        val noTemp: Nothing
+    // 순수 함수
+    fun pureFuntion(x: Int, y: Int): Int {
+        return x + y
+    }
 
+    // 불순 함수
+    fun impureFuntion(x: Int, y: Int): Int {
+        z = 20
 
+        return x + y + z
+    }
 
+    // 부수 효과 있는 불순 함수
+    fun impureFuntionWithSideEffect(x: Int, y: Int): Int {
+        z = y
+
+        return x + y + z
+    }
+
+    fun doSomething(func: (Int) -> String): String {
+
+        return func(z)
     }
 }
 
