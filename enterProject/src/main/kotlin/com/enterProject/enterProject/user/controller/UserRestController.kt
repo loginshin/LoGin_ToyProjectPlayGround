@@ -1,6 +1,7 @@
 package com.enterProject.enterProject.user.controller
 
-import com.enterProject.enterProject.common.response.ApiResponse
+import com.enterProject.enterProject.common.response.ApiResponseDTO
+import com.enterProject.enterProject.common.response.ApiResponses
 import com.enterProject.enterProject.user.dto.UserSignUpDTO
 import com.enterProject.enterProject.user.service.UserService
 import org.springframework.http.ResponseEntity
@@ -17,9 +18,8 @@ class UserRestController(
 
     // 회원 가입
     @PostMapping("/signup")
-    fun signUp(@RequestBody req: UserSignUpDTO): ResponseEntity<Map<String, Any?>> {
+    fun signUp(@RequestBody req: UserSignUpDTO) : ResponseEntity<ApiResponseDTO<Unit>> {
         userService.signUp(req)
-
-        return ApiResponse.ok()
+        return ApiResponses.ok()
     }
 }

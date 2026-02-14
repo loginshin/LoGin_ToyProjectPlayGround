@@ -1,16 +1,16 @@
 package com.enterProject.enterProject.common.response
 
-import java.time.OffsetDateTime
+import java.io.Serializable
 
-/**
- * @return success : 성공/실패
- * @return message : 안내 메시지
- * @return data : 실제 데이터
- * @timestamp : 디버깅/로그 확인 편하게 (선택 : 개발 편의)
- */
 data class ApiResponseDTO<T>(
-    val success: Boolean,
-    val message: String? = null,
-    val data: T? = null,
-    val timestamp: String = OffsetDateTime.now().toString()
-)
+    val status: Int,
+    val message: String,
+    val data: T? = null
+) : Serializable {
+    companion object {
+        fun ok(): ApiResponseDTO<Unit> = ApiResponseDTO(status = 200, message = "OK", data = Unit)
+        fun <T> ok(data: T): ApiResponseDTO<T> = ApiResponseDTO(status = 200, message = "OK", data = data)
+        fun fail(status: Int = 500, message: String = "ERROR"): ApiResponseDTO<Unit> =
+            ApiResponseDTO(status = status, message = message, data = null)
+    }
+}
